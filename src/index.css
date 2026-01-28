@@ -34,6 +34,10 @@
   @apply bg-[url('../src/assets/Noise.webp'),linear-gradient(to_bottom,var(--color-primary-1500),var(--color-primary-1300))]
 }
 
+.bg-gradient-to-top {
+  @apply bg-[url('../src/assets/Noise.webp'),linear-gradient(to_top,var(--color-primary-1500),var(--color-primary-1300))]
+}
+
 .transition-properties {
   @apply transition-all duration-150;
 }
@@ -45,3 +49,4 @@
 .primary-glow-hover {
   @apply hover:drop-shadow-[0px_0px_25px_var(--color-primary-50-glow)]
 }
+
