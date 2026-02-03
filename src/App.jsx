@@ -1,3 +1,4 @@
+import FAQs from "./components/sections/FAQs/FAQs";
 import Features from "./components/sections/Features";
 import Header from "./components/sections/Header";
 import Hero from "./components/sections/Hero";
@@ -18,6 +19,7 @@ function App() {
       <Main>
         <Logos/>
         <Features/>
+        <FAQs/>
       </Main>
     </Page>
   )
