@@ -1,6 +1,9 @@
 import {motion} from 'motion/react'
-const Modal = ({children}) => {
-    const activelyDisplayedModal = true;
+import { useModalContext } from '../../../contexts/ModalContext';
+
+const Modal = ({children, modal}) => {
+    const {activeModal, setActiveModal} = useModalContext();
+    const activelyDisplayedModal = modal === activeModal;
   return (
     <motion.div className='fixed top-0 right-0 bottom-0 left-0 z-50 flex items-center justify-center px-24 py-32 backdrop-blur-sm'
     animate={activelyDisplayedModal ? "visible" : "hidden"}
@@ -15,6 +18,7 @@ const Modal = ({children}) => {
         }
     }}
     transition={{duration: 0.25, ease: "easeInOut"}}
+    onClick={(e) => e.currentTarget === e.target && setActiveModal("")}
     >
         <motion.div className='flex overflow-hidden rounded-2xl opacity-0 shadow-[0px_0px_20px_rgb(6,18,18,.10)]'
         initial={{opacity: 0, y: 40}}

@@ -1,6 +1,7 @@
 import Close from '../../icons/Close';
 import Checkmark from '../../icons/Checkmark';
 import { useState } from 'react';
+import { useModalContext } from '../../../contexts/ModalContext';
 
 const initialState = {
     email: "",
@@ -8,6 +9,7 @@ const initialState = {
 }
 
 const SignUpModal = () => {
+const {setActiveModal} = useModalContext();
 const [checked, setChecked] = useState(false);
 const [inputs, setInputs] = useState(initialState);
 
@@ -26,6 +28,7 @@ function handleSubmit(e){
         console.log(inputs);
         setInputs(initialState);
         // close modal
+        setActiveModal("");
         // submit this to a database etc...
     }
 }
@@ -36,7 +39,8 @@ function handleSubmit(e){
             <p className='text-primary-100 text-lg/8'>No charges, no fees. Get note taking in minutes!</p>
         </div>
         <div className="bg-primary-1500 flex flex-col justify-between gap-y-24 bg-[url('../src/assets/Noise.webp')] bg-repeat p-10">
-            <button className='border-primary-75 hover:bg-primary-75 group transition-properties ml-auto w-fit cursor-pointer rounded-2xl border-2 p-3'>
+            <button className='border-primary-75 hover:bg-primary-75 group transition-properties ml-auto w-fit cursor-pointer rounded-2xl border-2 p-3'
+            onClick={() => setActiveModal("")}>
                 <Close className='stroke-primary-75 group-hover:stroke-primary-1300 transition-properties' width={2}/>
             </button>
             <div className='text-primary-50 flex flex-col gap-y-6 text-lg/8 font-semibold tracking-tight'>
